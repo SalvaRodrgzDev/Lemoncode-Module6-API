@@ -1,4 +1,4 @@
-const characterMiddleware = (req, res, next) => {
+const hotelMiddleware = (req, res, next) => {
   if (req.method === 'POST') {
     req.body = {
       ...req.body,
@@ -9,14 +9,9 @@ const characterMiddleware = (req, res, next) => {
 };
 
 module.exports = (req, res, next) => {
-  switch (req.path) {
-    case '/character':
-      characterMiddleware(req, res, next);
-      break;
-    case '/location':
-      characterMiddleware(req, res, next);
-      break;
-    default:
-      next();
+  if (req.path === '/hotels') {
+    hotelMiddleware(req, res, next);
+  } else {
+    next();
   }
 };
