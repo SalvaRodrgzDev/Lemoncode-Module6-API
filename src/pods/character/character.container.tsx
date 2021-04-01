@@ -5,7 +5,7 @@ import { createEmptyCharacter, Character } from './character.vm';
 import { mapCharacterFromApiToVm, mapCharacterFromVmToApi } from './character.mappers';
 import { CharacterComponent } from './character.component';
 
-export const HotelContainer: React.FunctionComponent = (props) => {
+export const CharacterContainer: React.FunctionComponent = (props) => {
   const [character, setCharacter] = React.useState<Character>(createEmptyCharacter());
   const { id } = useParams();
   const history = useHistory();
