@@ -4,7 +4,7 @@ import CardHeader from '@material-ui/core/CardHeader/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import IconButton from '@material-ui/core/IconButton/IconButton';
-import LaunchIcon from '@material-ui/icons/Launch';
+import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { CharacterEntityVm } from '../character-collection.vm';
 import { StyledBadge, useStyles } from './character-card.styles';
@@ -46,7 +46,7 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
       />
       <CardActions>
         <IconButton onClick={() => onEdit(character.id)}>
-          <LaunchIcon />
+          <EditIcon />
         </IconButton>
         <IconButton onClick={() => onDelete(character.id)}>
           <DeleteIcon />
