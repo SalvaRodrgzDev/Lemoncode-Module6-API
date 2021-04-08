@@ -16,7 +16,9 @@ const styles = createStyles( {
   badge: {
     backgroundColor: (props: any) => applyStatusColor(props.status),
     color: '#44b700',
-    // boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    boxShadow: '0 0 0 2px #f0f0f0',
+    width: '.6rem',
+    height: '.6rem',
     '&::after': {
       position: 'absolute',
       top: 0,
