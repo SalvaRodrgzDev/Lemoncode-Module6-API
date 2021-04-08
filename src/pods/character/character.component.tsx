@@ -2,7 +2,6 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { TextFieldComponent } from 'common/components';
 import { Avatar, Button, Paper, Typography } from '@material-ui/core';
-import { formValidation } from './character.validations';
 import { Character } from './character.vm';
 import * as classes from './character.styles';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -34,11 +33,10 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
         onSubmit={onSave}
         initialValues={character}
         enableReinitialize={true}
-        validate={formValidation.validateForm}
       >
         {() => (
           <Form className={classes.root}>
-            <TextFieldComponent name="bestSentence" label="Best sentence" />
+            <TextFieldComponent name="bestSentence" label="bestSentence" />
             <Button type="submit" variant="contained" color="primary">
               Save
             </Button>

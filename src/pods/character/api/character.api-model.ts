@@ -16,5 +16,6 @@ export interface Character {
   image: string,
   episode: string[],
   url: string,
-  created: string
+  created: string,
+  bestSentence: string
 }

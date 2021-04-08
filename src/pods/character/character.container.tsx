@@ -21,9 +21,6 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
       handleLoadCharacter();
   }, []);
 
-  const logAsd = () => console.log('asd');
-
-
   const handleSave = async (character: Character) => {
     const apiCharacter = mapCharacterFromVmToApi(character);
     const success = await api.saveCharacter(apiCharacter);
@@ -34,5 +31,5 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     }
   };
 
-  return <CharacterComponent character={character} onSave={() => logAsd()} />;
+  return <CharacterComponent character={character} onSave={handleSave} />;
 };

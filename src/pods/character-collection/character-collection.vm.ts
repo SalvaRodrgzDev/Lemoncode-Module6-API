@@ -5,4 +5,5 @@ export interface CharacterEntityVm {
   species: string,
   gender: 'Male' | 'Female' | 'Genderless' | 'unknown',
   image: string,
+  bestSentence: string
 }

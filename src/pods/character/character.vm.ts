@@ -5,6 +5,7 @@ export interface Character {
   species: string,
   gender: 'Male' | 'Female' | 'Genderless' | 'unknown',
   image: string,
+  bestSentence: string
 }
 
 export const createEmptyCharacter = (): Character => ({
@@ -14,4 +15,5 @@ export const createEmptyCharacter = (): Character => ({
   species: '',
   gender: 'unknown',
   image: '',
+  bestSentence: ''
 });
