@@ -5,6 +5,8 @@ import { Avatar, Button, Paper, Typography } from '@material-ui/core';
 import { formValidation } from './character.validations';
 import { Character } from './character.vm';
 import * as classes from './character.styles';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   character: Character;
@@ -13,6 +15,7 @@ interface Props {
 
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const { character, onSave } = props;
+  const history = useHistory();
 
   return (
     <Paper
@@ -42,7 +45,12 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
           </Form>
         )}
       </Formik>
+      <Button
+        className={classes.back}
+        onClick={() => history.goBack()}
+      >
+        <ArrowBackIcon />
+      </Button>
     </Paper>
-
   );
 };
