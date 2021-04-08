@@ -10,18 +10,23 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   const { id } = useParams();
   const history = useHistory();
 
-  const handleLoadHotel = async () => {
-    const apiHotel = await api.getCharacter(id);
-    setCharacter(mapCharacterFromApiToVm(apiHotel));
+  const handleLoadCharacter = async () => {
+    if (id) {
+      const apiCharacter = await api.getCharacter(id);
+      setCharacter(mapCharacterFromApiToVm(apiCharacter));
+    }
   };
 
   React.useEffect(() => {
-      handleLoadHotel();
+      handleLoadCharacter();
   }, []);
 
-  const handleSave = async (hotel: Character) => {
-    const apiHotel = mapCharacterFromVmToApi(hotel);
-    const success = await api.saveCharacter(apiHotel);
+  const logAsd = () => console.log('asd');
+
+
+  const handleSave = async (character: Character) => {
+    const apiCharacter = mapCharacterFromVmToApi(character);
+    const success = await api.saveCharacter(apiCharacter);
     if (success) {
       history.goBack();
     } else {
@@ -29,5 +34,5 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     }
   };
 
-  return <CharacterComponent character={character} onSave={handleSave} />;
+  return <CharacterComponent character={character} onSave={() => logAsd()} />;
 };

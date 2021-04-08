@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { CharacterEntityVm } from '../character-collection.vm';
-import { StyledBadge } from './character-card.styles';
+import { StyledBadge, useStyles } from './character-card.styles';
 
 interface Props {
   character: CharacterEntityVm;
@@ -17,6 +17,7 @@ interface Props {
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
   const { character, onEdit, onDelete } = props;
+  const classes = useStyles();
 
   return (
     <Card>
@@ -31,7 +32,13 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
             variant="dot"
             status={character.status}
           >
-            <Avatar alt="character avatar" src={character.image} >{character.species}</Avatar>
+            <Avatar
+              className={classes.large}
+              alt="character avatar"
+              src={character.image}
+            >
+              {character.species}
+            </Avatar>
           </StyledBadge>
         }
         title={character.name}

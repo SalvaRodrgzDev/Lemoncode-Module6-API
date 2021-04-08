@@ -1,5 +1,5 @@
 import Badge from '@material-ui/core/Badge';
-import { createStyles, withStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, withStyles } from '@material-ui/core/styles';
 
 const applyStatusColor = status => {
   switch (status) {
@@ -40,5 +40,12 @@ const styles = createStyles( {
     },
   },
 });
+
+export const useStyles = makeStyles((theme) => ({
+  large: {
+    width: theme.spacing(9),
+    height: theme.spacing(9),
+  },
+}));
 
 export const StyledBadge = withStyles(styles)(Badge);
