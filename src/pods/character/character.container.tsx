@@ -18,7 +18,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   };
 
   React.useEffect(() => {
-      handleLoadCharacter();
+    handleLoadCharacter();
   }, []);
 
   const handleSave = async (character: Character) => {
