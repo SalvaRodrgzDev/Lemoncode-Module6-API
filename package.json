@@ -6,7 +6,7 @@
   "scripts": {
     "start": "run-p -l type-check:watch start:dev start:server",
     "start:dev": "webpack-dev-server --config ./config/webpack/dev.js",
-    "start:server": "cd server && npm run mock-server",
+    "start:server": "cd server && npm run start",
     "build": "run-p -l type-check build:prod",
     "build:prod": "npm run clean && webpack --config ./config/webpack/prod.js",
     "type-check": "tsc --noEmit",
@@ -25,6 +25,8 @@
     "axios": "^0.19.2",
     "emotion": "^10.0.27",
     "formik": "^2.1.4",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
     "material-ui-rating": "^4.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
