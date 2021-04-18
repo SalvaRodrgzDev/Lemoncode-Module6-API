@@ -18,6 +18,8 @@ export const getCharacterCollection = async (): Promise<CharacterEntityApi[]> =>
         status
         species
         image
+        gender
+        bestSentence
       }
     }
   `;
