@@ -19,6 +19,7 @@ export const typeDefs = gql`
 
   type Query {
     characters: [Character!]!
+    character(id: ID!): Character
   }
 
   enum Status {
@@ -37,5 +38,9 @@ export const typeDefs = gql`
   type NameUrl {
     name: String
     url: String
+  }
+
+  type Mutation {
+    deleteCharacter(id: ID!): Boolean
   }
 `;

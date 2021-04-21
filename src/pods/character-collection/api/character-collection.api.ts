@@ -3,8 +3,6 @@ import { CharacterEntityApi } from './character-collection.api-model';
 import { gql } from 'graphql-request';
 import { graphQLClient } from 'core/api';
 
-const url = '/api/character';
-
 interface GetCharacterCollectionResponse {
   characters: CharacterEntityApi[];
 }
@@ -31,6 +29,13 @@ export const getCharacterCollection = async (): Promise<CharacterEntityApi[]> =>
 };
 
 export const deleteCharacter = async (id: string): Promise<boolean> => {
-  await Axios.delete(`${url}/${id}`);
+  const query = gql`
+    mutation {
+      deleteCharacter(id: "${id}")
+    }
+  `;
+
+  await graphQLClient.request(query);
+
   return true;
 };
