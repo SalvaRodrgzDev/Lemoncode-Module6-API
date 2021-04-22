@@ -1,9 +1,6 @@
 import { Character } from './character.api-model';
-import Axios from 'axios';
 import { gql } from 'graphql-request';
 import { graphQLClient } from 'core/api';
-
-const characterListUrl = '/api/character';
 
 interface GetCharacterResponse {
   character: Character;
@@ -11,8 +8,6 @@ interface GetCharacterResponse {
 
 export const saveCharacter = async (character: Character): Promise<boolean> => {
   if (character.id) {
-    console.log(character);
-
     const query = gql`
     mutation($character: CharacterInput!) {
       updateCharacter(character: $character)
@@ -20,9 +15,16 @@ export const saveCharacter = async (character: Character): Promise<boolean> => {
   `;
     await graphQLClient.request<Boolean>(query, {
       character: character
-    })
+    });
   } else {
-    await Axios.post<Character>(characterListUrl, character);
+    const query = gql`
+    mutation($character: CharacterInput!) {
+      insertCharacter(character: $character)
+    }
+    `;
+    await graphQLClient.request<Boolean>(query, {
+      character: character
+    });
   }
   return true;
 };

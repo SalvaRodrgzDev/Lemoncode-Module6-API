@@ -13,6 +13,10 @@ export const CharacterCollectionContainer = () => {
     loadCharacterCollection();
   }, []);
 
+  const handleCreateCharacter = () => {
+    history.push(linkRoutes.createCharacter);
+  };
+
   const handleEdit = (id: string) => {
     history.push(linkRoutes.editCharacter(id));
   };
@@ -25,6 +29,7 @@ export const CharacterCollectionContainer = () => {
   return (
     <CharacterCollectionComponent
       characterCollection={characterCollection}
+      onCreateCharacter={handleCreateCharacter}
       onEdit={handleEdit}
       onDelete={handleDelete}
     />

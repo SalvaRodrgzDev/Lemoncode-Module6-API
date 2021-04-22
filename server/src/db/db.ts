@@ -19,7 +19,7 @@ export const insertCharacter = async (characterEdit: Character) => {
       id: newId,
     },
   ];
-  return newId;
+  return true;
 };
 
 export const updateCharacter = async (characterEdit: Character): Promise<boolean> => {

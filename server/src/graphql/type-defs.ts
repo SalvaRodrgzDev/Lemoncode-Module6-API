@@ -46,7 +46,7 @@ export const typeDefs = gql`
   }
 
   input CharacterInput {
-    id: ID!
+    id: ID
     name: String
     status: Status
     species: String
@@ -64,5 +64,6 @@ export const typeDefs = gql`
   type Mutation {
     deleteCharacter(id: ID!): Boolean
     updateCharacter(character: CharacterInput!): Boolean
+    insertCharacter(character: CharacterInput!): Boolean
   }
 `;

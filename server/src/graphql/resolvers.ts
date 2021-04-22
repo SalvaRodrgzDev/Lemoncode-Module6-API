@@ -1,4 +1,4 @@
-import { getCharacterList, Character, getCharacter, deleteCharacter, updateCharacter } from '../db';
+import { getCharacterList, Character, getCharacter, deleteCharacter, updateCharacter, insertCharacter } from '../db';
 
 export const resolvers = {
   Query: {
@@ -17,6 +17,9 @@ export const resolvers = {
     },
     updateCharacter: async (parent, args): Promise<Boolean> => {
       return await updateCharacter(args.character);
+    },
+    insertCharacter: async (parent, args): Promise<Boolean> => {
+      return await insertCharacter(args.character);
     }
   }
 };
