@@ -35,7 +35,7 @@ export const deleteCharacter = async (id: string): Promise<boolean> => {
     }
   `;
 
-  await graphQLClient.request(query);
+  await graphQLClient.request<Boolean>(query);
 
   return true;
 };

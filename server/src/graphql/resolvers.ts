@@ -1,4 +1,4 @@
-import { getCharacterList, Character, getCharacter, deleteCharacter } from '../db';
+import { getCharacterList, Character, getCharacter, deleteCharacter, updateCharacter } from '../db';
 
 export const resolvers = {
   Query: {
@@ -14,6 +14,9 @@ export const resolvers = {
   Mutation: {
     deleteCharacter: async (parent, args): Promise<Boolean> => {
       return await deleteCharacter(args.id);
+    },
+    updateCharacter: async (parent, args): Promise<Boolean> => {
+      return await updateCharacter(args.character);
     }
   }
 };

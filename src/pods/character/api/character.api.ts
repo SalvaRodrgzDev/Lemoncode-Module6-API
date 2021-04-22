@@ -11,7 +11,16 @@ interface GetCharacterResponse {
 
 export const saveCharacter = async (character: Character): Promise<boolean> => {
   if (character.id) {
-    await Axios.patch<Character>(`${characterListUrl}/${character.id}`, character);
+    console.log(character);
+
+    const query = gql`
+    mutation($character: CharacterInput!) {
+      updateCharacter(character: $character)
+    }
+  `;
+    await graphQLClient.request<Boolean>(query, {
+      character: character
+    })
   } else {
     await Axios.post<Character>(characterListUrl, character);
   }
